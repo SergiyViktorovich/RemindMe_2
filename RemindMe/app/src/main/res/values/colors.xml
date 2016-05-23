@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#0096aa</color>
     <color name="colorAccent">#FF4081</color>       //didn't fixed yet
     <color name="mainBackground">#eceff1</color>
+    <color name="colorWhite">#fafafa</color>       //pure white
 
 </resources>
