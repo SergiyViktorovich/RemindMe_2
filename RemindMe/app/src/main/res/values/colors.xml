@@ -5,5 +5,7 @@
     <color name="colorAccent">#607D8B</color>       //fixed #FF4081
     <color name="mainBackground">#eceff1</color>
     <color name="colorWhite">#fafafa</color>       //pure white
+    <color name="colorBlack">#191919</color>       //black
+
 
 </resources>
