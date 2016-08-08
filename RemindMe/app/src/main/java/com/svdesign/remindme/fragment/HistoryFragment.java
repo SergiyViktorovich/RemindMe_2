@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.svdesign.remindme.R;
-import com.svdesign.remindme.adapter.RemidListAdapter;
+import com.svdesign.remindme.adapter.RemindListAdapter;
 import com.svdesign.remindme.dto.RemindDTO;
 
 import java.util.ArrayList;
@@ -20,10 +20,14 @@ public class HistoryFragment extends AbstractTabFragment {
 
     private static final int LAYOUT = R.layout.fragment_history;
 
-    public static HistoryFragment getInstance(Context context) {
+    private List<RemindDTO> data;
+    private RemindListAdapter adapter;
+
+    public static HistoryFragment getInstance(Context context, List<RemindDTO> data) {
         Bundle args = new Bundle();
         HistoryFragment fragment = new HistoryFragment();
         fragment.setArguments(args);
+        fragment.setData(data);
         fragment.setContext(context);
         fragment.setTitle(context.getString(R.string.tab_item_history));
 
@@ -37,7 +41,8 @@ public class HistoryFragment extends AbstractTabFragment {
 
         RecyclerView rv =  (RecyclerView) view.findViewById(R.id.recycleView);
         rv.setLayoutManager(new LinearLayoutManager(context));
-        rv.setAdapter(new RemidListAdapter(createMockRemindListData()));
+        adapter = new RemindListAdapter(data);
+        rv.setAdapter(adapter);
 
         return view;
     }
@@ -57,4 +62,14 @@ public class HistoryFragment extends AbstractTabFragment {
     public void setContext(Context context) {
         this.context = context;
     }
+
+    public void setData(List<RemindDTO> data) {
+        this.data = data;
+    }
+
+    public void refreshData(List<RemindDTO> data) {
+        adapter.setData(data);
+        adapter.notifyDataSetChanged();
+    }
+
 }

@@ -12,11 +12,11 @@ import com.svdesign.remindme.dto.RemindDTO;
 
 import java.util.List;
 
-public class RemidListAdapter extends RecyclerView.Adapter<RemidListAdapter.RemindViewHolder> {
+public class RemindListAdapter extends RecyclerView.Adapter<RemindListAdapter.RemindViewHolder> {
 
     private List<RemindDTO> data;
 
-    public RemidListAdapter(List<RemindDTO> data) {
+    public RemindListAdapter(List<RemindDTO> data) {
         this.data = data;
     }
 
@@ -50,4 +50,7 @@ public class RemidListAdapter extends RecyclerView.Adapter<RemidListAdapter.Remi
         }
     }
 
+    public void setData(List<RemindDTO> data) {
+        this.data = data;
+    }
 }
